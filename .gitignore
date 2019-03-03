@@ -1,0 +1,8 @@
+cov.info
+covinfo
+*gcda
+*gcno
+*.log
+*.o
+*.d
+*.out
