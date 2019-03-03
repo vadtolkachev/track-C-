@@ -5,6 +5,7 @@
 int main()
 {
 	VVector<int> tmp;
+	VVector<int> tmp3(tmp);
 	tmp.push(1);
 	tmp.push(2);
 	tmp.push(3);

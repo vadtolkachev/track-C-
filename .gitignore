@@ -1,4 +1,4 @@
-cov.info
+*.info
 covinfo
 *gcda
 *gcno
@@ -6,3 +6,4 @@ covinfo
 *.o
 *.d
 *.out
+test.x
