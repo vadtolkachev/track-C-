@@ -1,4 +1,5 @@
 #pragma once
+#include <new>
 
 
 const unsigned VECTOR_SIZE = 2;
@@ -53,7 +54,7 @@ VVector<DataType>::VVector(const VVector &vec):
 template <typename DataType>
 VVector<DataType>::~VVector()
 {
-	delete[] m_data;
+	clear();
 }
 
 
@@ -74,6 +75,7 @@ bool VVector<DataType>::isEmpty() const
 template <typename DataType>
 DataType &VVector<DataType>::operator[](unsigned index)
 {
+	//TODO: check wrong index
 	return m_data[index];
 }
 
@@ -81,12 +83,8 @@ DataType &VVector<DataType>::operator[](unsigned index)
 template <typename DataType>
 VVector<DataType> &VVector<DataType>::operator=(const VVector<DataType> &vec)
 {
-	delete[] m_data;
-	m_size = vec.m_size;
-	m_capacity = vec.m_capacity;
-	m_data = new DataType[m_size];
-	for(unsigned i = 0; i < m_size; ++i)
-		m_data[i] = vec.m_data[i];
+	this->~VVector();
+	new (this) VVector(vec);
 
 	return *this;
 }
@@ -95,8 +93,6 @@ VVector<DataType> &VVector<DataType>::operator=(const VVector<DataType> &vec)
 template <typename DataType>
 void VVector<DataType>::push(const DataType &data)
 {
-	//TODO: check bad alloc
-
 	if(!m_capacity)
 	{
 		m_data = new DataType[VECTOR_SIZE];
@@ -121,7 +117,7 @@ void VVector<DataType>::push(const DataType &data)
 template <typename DataType>
 void VVector<DataType>::pop()
 {
-	//TODO: check null size, check bad alloc
+	//TODO: check null size
 
 	if(m_capacity == 2*m_size)
 	{
