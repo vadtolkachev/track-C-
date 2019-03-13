@@ -1,7 +1,7 @@
 *.info
 covinfo
-*gcda
-*gcno
+*.gcda
+*.gcno
 *.log
 *.o
 *.d
