@@ -47,6 +47,10 @@ bool VVector<VBool>::isEmpty() const noexcept
 }
 
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waggregate-return"
+
+
 VBool VVector<VBool>::at(const unsigned index)
 {
 	if(index > m_size)
@@ -79,6 +83,9 @@ bool VVector<VBool>::operator[](const unsigned index) const noexcept
 	VBool tmp(m_data[index/64], index%64);
 	return static_cast<bool>(tmp);	
 }
+
+
+#pragma GCC diagnostic pop
 
 
 VVector<VBool> &VVector<VBool>::operator=(const VVector &vec) noexcept
