@@ -144,8 +144,8 @@ void VVector<DataType>::pop()
 
 	if(m_capacity == 4*m_size)
 	{
-		DataType *tmp = new DataType[m_size]();
-		m_capacity = m_size;
+		DataType *tmp = new DataType[2*m_size]();
+		m_capacity = 2*m_size;
 		m_size--;
 
 		for(unsigned i = 0; i < m_size; ++i)
