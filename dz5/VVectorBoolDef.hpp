@@ -47,6 +47,7 @@ bool VVector<VBool>::isEmpty() const noexcept
 }
 
 
+/* ignoring returning aggregate because of move constructor call */
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waggregate-return"
 
