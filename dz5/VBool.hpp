@@ -1,6 +1,9 @@
 #pragma once
 #include <cstdint>
 
+const unsigned UINT64_BIT_SIZE = 64;
+const unsigned BYTE_SIZE = 8;
+
 
 class VBool
 {

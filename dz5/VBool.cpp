@@ -7,7 +7,7 @@ VBool::VBool(uint64_t &mem, const uint64_t &index):
 	m_mem(mem),
 	m_index(index)
 {
-	if(index > sizeof(uint64_t)*8-1)
+	if(index >= UINT64_BIT_SIZE)
 		throw std::runtime_error("Index overflow");
 }
 
